@@ -1,0 +1,20 @@
+{{define "upload-portfolio"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/site.css">
+    <title>Upload Portfolio</title>
+</head>
+<body>
+{{template "_header"}}
+<h3>Form Upload Image</h3>
+<form action="/process-upload" enctype="multipart/form-data" method="post">
+    <input type="text" name="alias" id="alias" class="form-control">
+    <input type="file" name="file" id="file" class="form-control">
+    <button type="submit" class="btn btn-primary"> Send </button>
+</form>
+</body>
+</html>
+{{end}}

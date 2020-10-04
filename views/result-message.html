@@ -1,0 +1,30 @@
+{{define "result-message"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/site.css">
+</head>
+<body>
+{{template "_header"}}
+<h1 class="topic">Result Message</h1>
+<table noborder class="table table-condensed">
+    <tr>
+        <td>Email</td>
+        <td>{{.email}}</td>
+    </tr>
+    <tr>
+        <td>Subject</td>
+        <td>{{.subject}}</td>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td>{{.message}}</td>
+    </tr>
+</table>
+{{template "_footer"}}
+</body>
+</html>
+{{end}}

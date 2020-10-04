@@ -1,0 +1,39 @@
+{{define "contributer"}}
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/site.css">
+        <title>Learning </title>
+    </head>
+    <body>
+
+    <h1 class="topic">Kontak Pengembang</h1>
+    <p>
+        Perkenalkan saya:
+    <ol>
+        <li>
+            Nama : {{.Name}}
+        </li>
+        <li>
+            Email : {{.Email}}
+        </li>
+        <li>
+            Address : {{.Address}}
+        </li>
+        <li>
+            Github : {{.Info.Github}}
+        </li>
+        <li>: {{.HasPermission "feature-a"}} </li>
+    </ol>
+    <h3>Activities</h3>
+    <ul>
+        {{range $index, $item := .Hobbies }}
+            <li>
+{{/*                {{add $index 1}}*/}}
+                {{$item}}
+            </li>
+        {{end}}
+    </ul>
+    </body>
+    </html>
+{{end}}

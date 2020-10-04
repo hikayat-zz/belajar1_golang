@@ -1,0 +1,67 @@
+{{define "contact"}}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/site.css">
+        <title>Document</title>
+    </head>
+    <body>
+    {{template "_header"}}
+    <h1 class="topic">Kontak Pengembang</h1>
+    <p>
+        Perkenalkan saya:
+    <ol>
+        <li>
+            Nama : {{.Name}}
+        </li>
+        <li>
+            Email : {{.Email}}
+        </li>
+        <li>
+            Address : {{.Address}}
+        </li>
+        <li>
+            Github : {{.Info.Github}}
+        </li>
+        <li>: {{.HasPermission "feature-a"}} </li>
+    </ol>
+    <h3>Address </h3>
+    <ul>
+        {{$index := 0 }}
+        {{range $key , $elemen := .Addr}}
+            {{$index}}
+            <li>{{$key}}. {{$elemen.Name}}</li>
+            <li>{{$elemen.Description}}</li>
+        {{end}}
+    </ul>
+    <h3>Send Message</h3>
+    <form action="/send-message" method="get">
+    <table noborder>
+        <tr>
+            <td>Subject</td>
+            <td><input type="text" name="subject" class="form-control" id="subject"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email"  class="form-control" id="email"></td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td><textarea name="message" id="message"  class="form-control"  cols="30" rows="3"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-primary">Send</button></td>
+            <td></td>
+        </tr>
+    </table>
+    </form>
+    {{template "_footer"}}
+    </body>
+    </html>
+{{end}}
